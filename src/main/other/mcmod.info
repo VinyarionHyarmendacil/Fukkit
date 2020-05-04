@@ -1,0 +1,44 @@
+[
+{
+  "modid": "fukkit",
+  "name": "Fukkit",
+  "description": "Lots of nice stufz.",
+  "version": "1.4.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [""],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+{
+  "modid": "fukkit_sm",
+  "name": "Fukkit Server Management",
+  "description": "Lots of nice stufz.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [""],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+{
+  "modid": "fukkit_rpg",
+  "name": "Fukkit RPG Addon",
+  "description": "Lots of nice stufz.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [""],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

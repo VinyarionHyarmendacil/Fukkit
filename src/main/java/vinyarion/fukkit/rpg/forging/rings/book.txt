@@ -1,0 +1,83 @@
+Title:Parf gûl echyr
+Author:A Smith of Ancient Times
+Lore:    This book seems like it is very old,
+    so old that the pages are almost too
+    fragile to even touch. Somehow, it
+    seems that it is preserved by magic,
+    but who would want to keep a book
+    safe for thousands or years?
+Generation:Tattered(3)
+Pages:
+    1:
+        Herein is set forth my record of Ring-making.
+        Many desire to learn this art, but few ever learn skills enough to teach others.
+        Thus I write this book, to keep for future readers the knowledge of the craft.
+        I shall begin with the fundamentals.
+    2:
+        Getting Started
+        To begin, you must have a Blacksmith's Hammer.
+        To craft one, place a three iron ingots in an anvil.
+        Next, turn it into a Ringsmith's Hammer by placing the Blacksmith's Hammer in the left anvil slot with two mithril ingots, one each in the top and bottom slots.
+    3:
+        General Principles
+        In order to forge rings, you need rings of course.
+        Any of the five types will do.
+        In general, "forging [item] with [other]" means placing [item] in the left slot of the anvil, [other] in the top, and a Ringsmith's hammer on the bottom.
+    4:
+        Rings
+        Heat any ring first in order to modify it.
+        This is done by forging it with Durnaur.
+        To make a ring wearable again, but freeze its attributes, forge it with Edhelvir.
+        This can be done as many times as desired.
+        Once a ring is cooled, you can right click whilst holding it to put it on.
+        The effects currently on the ring will be given to you, and the remaining time will decrease.
+        If the ring is removed from your hotbar, you will cease its use and wear.
+    5:
+        Forging grades
+        There are several forging grades that Hammers, Upgrades, Rings, and Gems can have.
+        These are:
+        -Normal
+        -Common
+        -Uncommon
+        -Heroic
+        -Rare
+        -Epic
+        -Legendary
+        -Mythical
+        -Mythical+
+        -Mythical++
+        
+        When forging Upgrades, Rings, and Gems, the grade of the result is dependent on the grade of the hammer used in the bottom slot:
+        -There is a 50% chance you will make a mistake.
+        -There is a 30% chance it will be the same grade.
+        -There is a 10% chance it will be the grade immediately inferior.
+        -There is a 9% chance it will be the grade immediately superior.
+        -There is a 1% chance it will be the grade twice superior.
+        If there is no such grade, the result will default to the same grade as the hammer (or the highest, in the last case).
+        You can also reduce the chance you will make a mistake by having a good Luck stat.
+    7:
+        Upgrades
+        Your hammer starts out at the Normal grade.
+        Upgrades are made by forging Mithril ingots.
+        To upgrade your hammer, place the hammer on the top and the upgrade on the left.
+        Your hammer also gets repaired in the process.
+        
+        Higher grades give gems longer efects and rings more effect slots.
+        For example: a Normal Ruby gives 1 minute of Strength, but a Rare Ruby gives 3.
+        Or for rings: a Common ring has 2 slots, but a Legendary has 7.
+    9:
+        Gems
+        You can forge gems by themselves to imbue them with powers.
+        The powers are as follows:
+        -Topaz gives Fire Resistance
+        -Amythyst gives Haste
+        -Sapphire gives Night Vision
+        -Ruby gives Strength
+        -Amber gives Saturation
+        -Diamond gives Resistance
+        -Pearl gives Regeneration
+        -Opal gives Speed
+        -Emerald gives Jump
+        -Coral gives Water Breathing
+        It is rumored that a terrible firey monster of old will drop a dust that can grant invisibility when forged, but what that creature is and the name of the powder is lost to time.
+        It is also believed that some way exists to force the effects of ill upon your enemies, but if it exists, it has not yet been found.

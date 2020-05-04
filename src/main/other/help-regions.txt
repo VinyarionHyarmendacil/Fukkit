@@ -1,0 +1,16 @@
+Permissions for regions:
+    block_break,             1
+    block_place,             2
+    useblock_door,           4
+    useblock_trapdoor,       8
+    useblock_button,         16
+    useblock_lever,          32
+    interact_attack,         64
+    interact_takedamage,     128
+    block_bucket,            256
+    use_container,           512
+    deprecated_warzone,      1024
+    useblock_generic,        2048
+    region_naturalspawn,     4096
+    interact_itemframe,      8192
+Add the desired permissions, and use that for the <perms> parameter of the /f_region and the /f_regioncyl commands

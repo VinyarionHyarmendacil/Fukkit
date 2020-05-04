@@ -1,0 +1,232 @@
+**********************************************
+*                                            *
+*         Command specification for          *
+*            Fukkit by Vinyarion             *
+*               Copyright 2018               *
+*                                            *
+**********************************************
+
+
+/f_info
+    - displays info
+
+/f_debug
+    - enables debug mode, for developer use
+    
+/f_test
+    - a command only usable by the developer, for testing purposes only
+
+/f_header <'reset'|'show'|headerString>
+    - lets you change the chat-output string, which defaults to a colored '[Valinor]'
+
+/f_fill <x1> <y1> <z1> <x2> <y2> <z2> <block> [meta]
+    - lets command blocks fill a cuboid with blocks
+
+/f_ifblockat <x> <y> <z> <block> <meta|'any'> <command>
+    - lets command clocks test for a block, and execute <command> if it's there
+
+/f_execute <selector> <command>
+    - executes commands as entities
+    - WIP
+
+/f_recipe <add|remove|display> <recipeName> [<valid recipe nbt>]
+    - registers a custom recipe
+    - see recipe help file
+
+/f_anvilrecipe <add|remove|display> [<recipeName>|<valid recipe nbt>]
+    - registers a custom recipe for use in anvils
+    - see recipe help file
+
+/f_discord <info|token|start|stop|status|channel> [<tokenString|guild:cat:channel|guild:channel>]
+    - handles interaction with discord
+
+/f_startup <add|set|rem|clear|list> <index> <command>
+    - allows commands to be executes on server start
+
+/f_attribute <add|remove|help> <attribute> [<attribute args>...]
+    - manages attributes for custom items
+    - 'Ring' attributes are also found here
+
+/f_armorseteffects <add|remove|view> <name> [<effect;effect;...>]
+    - adds effects to a set of armor
+    - armor sets are determined by the ArmorSet attribute
+
+/f_wand <set|remove|display> [<attributeName|'all'> [<value>]]
+    - manages attributes for custom wands
+
+/f_velocity <selector> <add|set> <grid|interp> <vx> <vy> <vz>
+    - changes the velocity for the selected thing
+
+/f_tempperms <player> <hh:mm:ss|revoke|revokeAll> [<perm>]
+    - grants temporary permissions to a player for the specified amount of time
+    - revokes same permissions
+
+/f_perms <perm|user> <add|remove|list> <permName|'attributes'> [<attributeName|playerName>]
+    - grants permissions by group
+    - revokes same permissions
+
+/f_d_op <user>
+    - grants operator status to a discord user
+    - user executes commands by DMing the bot
+
+/f_d_deop <user>
+     - revokes operator status for a discord user
+
+/f_d_oplist
+    -displays the list of opped discord users
+
+/f_titles <prefix|suffix|!prefix|!suffix> <player> [<value>]
+    - adds and removes prefixes and suffixes
+
+/f_groups <add|remove> <playerName> <group>
+    - Groups, only realy shows up in /list
+
+/f_kits <add|set|remove> <kitName> [<cooldown(hh:mm:ss)>]
+    - manages kits
+
+/f_region <add|remove|display> <regionName> [<x1> <y1> <z1> <x2> <y2> <z2> <perms>]
+    - defines boundaries for a region
+    - sets permissions for a region: perms is an integer, found as follows: the bitwiseOR/addition of all that are allowed for players:
+        = BIT_BREAK, 1
+        = BIT_PLACE, 2
+        = BIT_DOOR, 4
+        = BIT_TRAPDOOR, 8
+        = BIT_BUTTON, 16
+        = BIT_LEVER, 32
+        = BIT_ATTACK, 64
+        = BIT_DAMAGE, 128
+        = BIT_BUCKET, 256
+        = BIT_CONTAINER, 512
+    For example, to let players push buttons, flip levers, and open doors and trapdoors, the result would be 60 (4 + 8 + 16 + 32)
+    This kind of argument is called a 'bitfield'
+
+/f_regioncyl <add|remove|display> <regionName> [<x> <z> <radius> <dimension> <perms>]
+    - defines boundaries for a cylyndrical region
+    - see /f_region
+
+/warzone <regionName> <radius>
+    - shortcut for /f_region
+    - deprecated
+
+/f_nbt <operation> <value>
+    - helps edit certain parts of items' NBT data
+
+/f_script <reload|view|run> <scriptToExecute> [<player|'server'>]
+    - executes or reloads a script
+    - scripts are lists of commands, saved in text files
+
+/f_ifcondition <player|'server'> <type> <typeValue> <qualifier> <value> <command...>
+    - checks the specified condition, and if true, executes <command...>
+    - examples would include checking for a minimum alignment
+
+/f_customitem <add|remove> <simpleName> [<parentItem> <displayName>]
+    adds and removes custom items to the game
+
+/f_signline <clear|remove|set> [<line> [<text>]]
+    - helps edit signs and chisled stone
+
+/f_particle <dimension|'own'> <particle> <amount|min:max> [<x> <y> <z> [<dx> <dy> <dz> [<velocity>]]]
+    - summons particles
+
+/f_loot <add|remove|addhere|removehere> <lootTableName> [<x> <y> <z>] [<reward|cooldown(hh:mm:ss)> <minItems> <maxItems>]
+    - generated a loot table, or sets a loot table at a chest
+
+/f_gui <display|reload> <name> [<player>]
+    - displays a chest gui
+
+/f_exchange <player> <scriptToExecute|`commandToRun`> <money|item|customitem> <amount|{valid nbt tag}> [<customItemName>]
+    - executes a script if the player has certain items or enough money
+    - if you wish to execute just one command, enclose the command in backticks or graves (`), and the command itself must not contain said backticks or graves
+    - removes items/money
+
+/invis [<player> [<on|off|toggle>]]
+    - vanishes a player
+
+/invsee <player>
+    - looks at a player's inventory
+
+/tpo <player> [<toPlayer>]
+    - teleports one player to another
+
+/tppos <player> <x> <y> <z> [<dim>] [<locationName>]
+    - teleports a player to a specific location
+
+/health <player> <max|current> <value>
+    - sets a player's current or maximum health to the given value
+
+/mute <player>
+    - mutes a player
+
+/unmute <player>
+    - unmutes a player
+
+/glitch <player>
+    - glitches a player
+
+/unglitch <player>
+    - unglitches a player
+
+/kickall <kick message...>
+    - kicks everyone except the sender with the specified message
+
+/spawn [<set>]
+    - the spawn command
+
+/echest [<player>]
+    - looks in a players enderchest, defaulting to the sender's
+
+/warp <warpname|add|remove> [<warpname> [<x> <y> <z> [<dimension>]]]
+    - the warp command
+
+/tpa <player>
+    - posts a request to teleport to a player
+
+/tpahere <player>
+    - posts a requests for a player to teleport to you
+
+/tpaccept
+    - accepts a teleport request
+
+/tpadeny
+    - denies a request
+
+/roleplay
+    - toggles roleplay chat
+
+/quiet <message>
+    - whispers in roleplay chat
+
+/shout <message>
+    - shouts in roleplay chat
+
+/emote <message>
+    - roleplays an action
+
+/respond <message>
+    - also /r
+    - responds to the last player to message you
+
+/dtell <discordUser> <msg>
+    - also /dmsg
+    - private messages a user on discord who is part of the current channel's guild
+
+/fly [<player>]
+    - duh
+
+/nick <nick> [<player>]
+    - grants a nickname
+
+/realname <nick>
+    - shows the real name for a given nickname
+
+/item [<action>]
+    - performs an action in chat with the player's held item
+
+/hat
+    - places the currently held item on user's head
+
+/kit <kit>
+    - gives a kit
+
+/seen <name>
+    - the last seen command

@@ -1,0 +1,22 @@
+This mod adds the functionality of the Groovy language to executing command scripts.
+This allows you to add randomness or conditions to the execution of ommands.
+In one groovy-enabled script, there are four times/ways you can have commands executed:
+    - When the script loads
+    - When it begins execution
+    - The main execution itself
+    - A seperate thread executes the desired content, lets you pause for certain amounts of time
+
+To use one or more of these, you have to write one or more of the following:
+
+    void init() {
+        // Does this on script load
+    }
+    void start() {
+        // Does this when script begins execution
+    }
+    void run() {
+        // The main execution of a script, happens sequentially: it finishes before other server tasks can happen
+    }
+    void thread() {
+        // Threaded execution of a script, happens in parallel: other server tasks happen before it finishes
+    }

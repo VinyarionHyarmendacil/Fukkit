@@ -1,0 +1,290 @@
+**********************************************
+*                                            *
+*       Custom Recipe specification for      *
+*            Fukkit by Vinyarion             *
+*               Copyright 2018               *
+*                                            *
+**********************************************
+
+
+Basic format:
+
+{
+    name:"RECIPENAME",              //This is for adding, removing, and otherwise identifying recipes
+    faction:"FACTIONNAME",          //A specified faction name (lowercase) or 'vanilla' for regular tables. Defaults to 'vanilla'
+    isCraftableByAnyone:BOOLEAN     //Whether this recipe can be crafted by anyone. Defaults to false, so make sure you have this tag
+    type:"RECIPETYPE",              // For now, either 'shaped' or 'shapeless' or 'attribute'. Defaults to 'shaped' if not specified
+    result:{
+        id:ITEMID,                  //This is the item id NUMBER
+        Count:COUNT,                //The stack size
+        Damage:DAMAGE,              //The durability or metadata
+        tag:{
+                //Tag stuff, optional
+        }
+    }, 
+    params:[
+        {},                         //List of parameters - see below
+        {}
+    ]
+}
+
+Examples:
+The recipe produced by the call
+
+public void registerRecipes() {
+    GameRegistry.addShapedRecipe(new ItemStack(LOTRMod.pouch, 1, 0), new Object[]{"GSG", 'G', Items.gold_nugget, 'S', LOTRMod.silverNugget});
+}
+
+would yield the format
+
+{
+    name:"PouchRecipeShaped", 
+    faction:"all",
+    isCraftableByAnyone:true,
+    type:"shaped", 
+    result:{
+        id:4097s, 
+        Count:1b, 
+        Damage:0s, 
+        tag:{
+            
+        }
+    }, 
+    params:[
+        {
+            type:"line", 
+            value:"GSG"
+        }, 
+        {
+            type:"item",
+            identifier:"G",
+            value:"minecraft:gold_nugget"
+        }, 
+        {
+            type:"item",
+            identifier:"S",
+            value:"lotr:item.silverNugget"
+        }
+    ]
+}
+
+
+The recipe produced by the call
+
+public void registerRecipes() {
+    GameRegistry.addShapelessRecipe(new ItemStack(LOTRMod.pouch, 1, 2), new Object[]{Items.gold_ingot, LOTRMod.silverIngot});
+}
+
+would yield the format
+
+{
+    name:"PouchRecipeShapeless", 
+    faction:"all",
+    isCraftableByAnyone:true,
+    type:"shapeless", 
+    result:{
+        id:4097s, 
+        Count:1b, 
+        Damage:2s, 
+        tag:{
+            
+        }
+    }, 
+    params:[
+        {
+            type:"item",
+            value:"minecraft:gold_ingot"
+        }, 
+        {
+            type:"item",
+            value:"lotr:item.silver"
+        }
+    ]
+}
+
+
+IMPORTANT NOTES:
+
+It is important to note that the "name" is needed so you can add and remove
+recipes while the server is running, instead of having to restart
+in order to register or change it.
+
+There should be no whitespace when you add the recipe,
+(use underscores for spaces in recipes, like "H_H" not "H H")
+or you might get some errors.
+
+Shaped recipe parms have "identifier" tags, shapeless do not.
+
+Results support Custom Items, like so:
+
+    result:{
+        custom:"[CUSTOM ITEM NAME]", 
+        Count:1b, 
+        Damage:2s, 
+        tag:{
+            
+        }
+    }
+   
+You just replace the 'id' tag with the custom item identifier.
+
+Parms also support itemstacks like so:
+
+    params:[
+        {
+            type:"itemstack", 
+            value:{
+                id:4097s, 
+                Count:1b,      //This is a large pouch.
+                Damage:2s, 
+                tag:{
+                    
+                }
+            }
+        }
+    ]
+
+Parms also support custom registered items like so:
+
+    params:[
+        {
+            type:"custom", 
+            value:"[CUSTOM ITEM NAME]"
+        }
+    ]
+
+The "faction" tag also supports lists, like so:
+
+    faction:[
+        "hobbit",
+        "rangernorth",
+        "rohan",
+        "dale"
+    ]
+
+The "tag" tag is always optional.
+The "value" tag supports itemIDs as well, like the /give command, but "id" tag does not support item names.
+
+
+All faction names are generated as if by:
+
+    name.toLowerCase().replace("_", "");
+
+The valid Faction names are specified as follows, extrapolate other factions:
+
+{
+    public static final String HOBBIT = "hobbit";
+    public static final String RANGER_NORTH = "rangernorth";
+    public static final String HIGH_ELF = "highelf";
+    public static final String GUNDABAD = "gundabad";
+    public static final String ANGMAR = "angmar";
+    public static final String WOOD_ELF = "woodelf";
+    public static final String DOL_GULDUR = "dolgoldur";
+    public static final String DALE = "dale";
+    public static final String DWARF = "dwarf";
+    public static final String GALADHRIM = "galadhrim";
+    public static final String DUNLAND = "dunland";
+    public static final String URUK_HAI = "urukhai";
+    public static final String FANGORN = "fangorn";
+    public static final String ROHAN = "rohan";
+    public static final String GONDOR = "gondor";
+    public static final String MORDOR = "mordor";
+    public static final String DORWINION = "dorwinion";
+    public static final String NEAR_HARAD = "nearharad";
+    public static final String MOREDAIN = "moredain";
+    public static final String TAUREDAIN = "tauredain";
+}
+
+************ ATTRIBUTE RECIPES ************
+
+These are of the form:
+
+{
+    name:"soulbinding", 
+    faction:"all", 
+    isCraftableByAnyone:false, 
+    type:"attribute", 
+    params:[
+        {
+            type:"attribute", 
+            value:"Soulbound"
+        }, 
+        {
+            type:"item", 
+            value:"minecraft:nether_star"
+        }
+    ]
+}
+
+They MUST have parameters in that order!!!!
+The attribute must be first, but any number of items or blocks can be after
+The tag
+
+        {
+            type:"levelByNumber", 
+            value:false
+        }, 
+
+is deprecated. Do not use.
+
+
+
+
+
+************ ANVIL RECIPES ************
+
+
+
+{
+    name:"anvilRecipeExample", 
+    isCraftableByAnyone:true,
+    result:{
+        id:4097s, 
+        Count:1b, 
+        Damage:0s, 
+        tag:{
+            
+        }
+    }, 
+    params:[
+        {
+            type:"item", 
+            value:"lotr:item.mithrilNugget"
+        }, 
+        {
+            type:"item",
+            value:"minecraft:gold_nugget"
+        }, 
+        {
+            type:"item",
+            value:"lotr:item.silverNugget",
+        }
+    ]
+}
+
+
+Also accepts null slots:
+
+    params:[
+            {
+                type:"item", 
+                value:"lotr:item.mithrilNugget"
+            }, 
+            {
+                type:"item",
+                value:"minecraft:gold_nugget"
+            }, 
+            {
+                type:"null"
+            }
+        ]
+
+
+
+
+
+
+
+
+
+
